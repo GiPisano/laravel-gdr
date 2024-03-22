@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string('description', 500);
+            $table->string('description', 500)->nullable();
             $table->string('slug', 50);
-            $table->enum('category', ['weapon','armour', 'magic_object'])->default('magic_object');
+            $table->string('category', 100);
             $table->string('type', 50);
-            $table->unsignedTinyInteger('weight');
-            $table->unsignedMediumInteger('cost');
+            $table->string('weight', 50);
+            $table->string('cost', 50);
             $table->timestamps();
         });
     }
