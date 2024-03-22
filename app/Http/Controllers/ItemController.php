@@ -10,7 +10,11 @@ class ItemController extends Controller
 {
     public function index()
     {
-        $items = Item::all();
+        $items = Item::paginate();
+
+        if (!$items) {
+            abort(404);
+        }
 
         return view('home', compact('items'));
     }
