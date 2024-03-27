@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
@@ -10,20 +10,21 @@
     @vite('resources/js/app.js')
 
     @yield('css')
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="wrapper">
-      @include('partials.header')
+        @include('partials.header')
 
-      <main>
-        @yield('main-content')
-      </main>
+        <main>
+            @yield('main-content')
+        </main>
 
-      @include('partials.footer')
+        @include('partials.footer')
     </div>
 
+    @yield('modal')
     @yield('js')
-  </body>
+</body>
 
 </html>

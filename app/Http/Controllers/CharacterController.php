@@ -37,7 +37,7 @@ class CharacterController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $character = new Character;
+        $character = new Character();
         $character->fill($data);
         $character->save();
 
@@ -62,7 +62,7 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-       return view('characters.edit', compact('character'));
+        return view('characters.edit', compact('character'));
     }
 
     /**
@@ -88,6 +88,8 @@ class CharacterController extends Controller
      */
     public function destroy(Character $character)
     {
-        //
+        $character->delete();
+
+        return redirect()->route('characters.index');
     }
 }

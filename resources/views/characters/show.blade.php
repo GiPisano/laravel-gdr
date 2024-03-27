@@ -8,6 +8,11 @@
             <h1>Scheda di {{ $character->name }}</h1>
             <a href="{{ route('characters.edit', $character) }}" class="btn btn-primary">Edit character</a>
 
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">
+                Launch demo modal
+            </button>
+
+
             <h2>Description</h2>
             <p>{{ $character->description }}</p>
 
@@ -33,4 +38,30 @@
         </div>
 
     </section>
+@endsection
+
+@section('modal')
+    <div class="modal" tabindex="-1" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Attenzione</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>sei sicuro di voler cancellare questo personaggio, non si può più tornare indietro</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                    <form action="{{ route('characters.destroy', $character) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-danger" type="submit">
+                            Delete character
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
