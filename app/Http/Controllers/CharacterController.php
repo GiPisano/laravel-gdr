@@ -41,7 +41,7 @@ class CharacterController extends Controller
         $character->fill($data);
         $character->save();
 
-        return redirect()->route('characters.show', $request);
+        return redirect()->route('characters.show', $character);
     }
 
     /**
@@ -52,7 +52,7 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        return view('character.show', $character);
+        return view('characters.show', compact('character'));
     }
 
     /**
