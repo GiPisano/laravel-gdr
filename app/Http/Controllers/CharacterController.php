@@ -59,11 +59,10 @@ class CharacterController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
      */
     public function edit(Character $character)
     {
-        //
+       return view('characters.edit', compact('character'));
     }
 
     /**
@@ -75,7 +74,10 @@ class CharacterController extends Controller
      */
     public function update(Request $request, Character $character)
     {
-        //
+        $data = $request->all();
+        $character->update($data);
+
+        return redirect()->route('characters.show', $character);
     }
 
     /**
