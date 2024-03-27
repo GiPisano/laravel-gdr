@@ -25,7 +25,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        //
+        return view('characters.create');
     }
 
     /**
@@ -36,7 +36,12 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $character = new Character;
+        $character->fill($data);
+        $character->save();
+
+        return redirect()->route('characters.show', $character);
     }
 
     /**
@@ -47,7 +52,7 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        //
+        return view('characters.show', compact('character'));
     }
 
     /**
