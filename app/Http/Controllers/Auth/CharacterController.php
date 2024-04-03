@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\Models\Character;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class CharacterController extends Controller
     public function index()
     {
         $characters = Character::all();
-        return view('characters.index', compact('characters'));
+        return view('auth.characters.index', compact('characters'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('characters.create');
+        return view('auth.characters.create');
     }
 
     /**
@@ -52,7 +53,7 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        return view('characters.show', compact('character'));
+        return view('auth.characters.show', compact('character'));
     }
 
     /**
@@ -62,7 +63,7 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        return view('characters.edit', compact('character'));
+        return view('auth.characters.edit', compact('character'));
     }
 
     /**
