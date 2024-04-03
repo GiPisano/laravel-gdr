@@ -16,6 +16,6 @@ class ItemController extends Controller
             abort(404);
         }
 
-        return view('home', compact('items'));
+        return view('guest.items.home', compact('items'));
     }
 }
