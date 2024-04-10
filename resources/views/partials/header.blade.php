@@ -8,7 +8,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'home']) href="{{ route('items.index') }}" aria-current="page">Items</a>
+                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'items.index']) href="{{ route('items.index') }}" aria-current="page">Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a @class(['nav-link', 'active'=> Route::currentRouteName() == 'types.index']) href="{{ route('types.index') }}" aria-current="page">Types</a>
                     </li>
                     <li class="nav-item">
                         <a @class([ 'nav-link' , 'active'=> Route::currentRouteName() == 'characters.index',
