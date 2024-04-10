@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Character;
+use App\Models\Item;
+use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class CharacterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -22,11 +24,12 @@ class CharacterController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('auth.characters.create');
+        $types = Type::all();
+        $items = Item::all();
+        return view('auth.characters.create', compact('types', 'items'));
     }
 
     /**
@@ -37,10 +40,14 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
         $character = new Character();
         $character->fill($data);
         $character->save();
+
+
+        if(Arr::exists($data, 'items'))$character->items()->attach($data['items']);
 
         return redirect()->route('characters.show', $character);
     }
@@ -49,7 +56,6 @@ class CharacterController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
      */
     public function show(Character $character)
     {
@@ -63,7 +69,9 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        return view('auth.characters.edit', compact('character'));
+        $types = Type::all();
+        $items = Item::all();
+        return view('auth.characters.edit', compact('character', 'types', 'items'));
     }
 
     /**
