@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class TypeController extends Controller
 {
@@ -26,7 +27,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.types.form');
     }
 
     /**
@@ -37,7 +38,13 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $type = new Type;
+        $type->fill($data);
+        $type->slug = Str::slug($type->name, '-');
+        $type->save();
+
+        return redirect('types.show', $type);
     }
 
     /**
@@ -60,7 +67,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('auth.types.form', compact('type'));
     }
 
     /**
