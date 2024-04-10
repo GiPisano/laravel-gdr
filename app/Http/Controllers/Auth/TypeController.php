@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TypeController extends Controller
 {
@@ -14,7 +15,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::paginate(10);
+        return view('auth.types.index', compact('types'));
     }
 
     /**

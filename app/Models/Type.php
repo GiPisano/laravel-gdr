@@ -9,7 +9,7 @@ class Type extends Model
 {
     public function characters()
     {
-        return $this->hasMany(Characters::class);
+        return $this->hasMany(Character::class);
     }
     use HasFactory;
 }
