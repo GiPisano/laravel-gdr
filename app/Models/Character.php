@@ -17,5 +17,5 @@ class Character extends Model
     public function items(){
         return $this->belongsToMany(Item::class);
     }
-    protected $fillable = ['name', 'description', 'attack', 'defence', 'speed', 'life', 'type_id'];
+    protected $fillable = ['name', 'description', 'strength', 'defence', 'speed', 'intelligence', 'life', 'type_id'];
 }

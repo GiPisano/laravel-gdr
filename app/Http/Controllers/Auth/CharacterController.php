@@ -71,7 +71,10 @@ class CharacterController extends Controller
     {
         $types = Type::all();
         $items = Item::all();
-        return view('auth.characters.edit', compact('character', 'types', 'items'));
+
+        $items_id = $character->items->pluck('id')->toArray();
+
+        return view('auth.characters.edit', compact('character', 'types', 'items', 'items_id'));
     }
 
     /**
@@ -85,6 +88,8 @@ class CharacterController extends Controller
     {
         $data = $request->all();
         $character->update($data);
+
+        if(Arr::exists($data, 'items'))$character->items()->attach($data['items']);
 
         return redirect()->route('characters.show', $character);
     }

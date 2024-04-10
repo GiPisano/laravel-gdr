@@ -23,8 +23,12 @@
                     <input type="number" class="form-control" id="life" name="life">
                 </div>
                 <div class="mb-3">
-                    <label for="attack" class="form-label">Character max attack</label>
-                    <input type="number" class="form-control" id="attack" name="attack">
+                    <label for="intelligence" class="form-label">Character max intelligence</label>
+                    <input type="number" class="form-control" id="intelligence" name="intelligence">
+                </div>
+                <div class="mb-3">
+                    <label for="strength" class="form-label">Character max strength</label>
+                    <input type="number" class="form-control" id="strength" name="strength">
                 </div>
                 <div class="mb-3">
                     <label for="defence" class="form-label">Character max defence</label>

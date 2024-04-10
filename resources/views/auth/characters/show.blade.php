@@ -22,7 +22,11 @@
                 </div>
                 <div class="col-3">
                     <h2>Attack</h2>
-                    <p>{{ $character->attack }}</p>
+                    <p>{{ $character->strength }}</p>
+                </div>
+                <div class="col-3">
+                    <h1>intelligence</h1>
+                    <p>{{ $character->intelligence }}</p>
                 </div>
                 <div class="col-3">
                     <h1>Defence</h1>

@@ -18,7 +18,8 @@ return new class extends Migration
 
             $table->string('name', 200);
             $table->text('description')->nullable();
-            $table->tinyInteger('attack');
+            $table->tinyInteger('strength');
+            $table->tinyInteger('intelligence');
             $table->tinyInteger('defence');
             $table->tinyInteger('speed');
             $table->tinyInteger('life')->unsigned();

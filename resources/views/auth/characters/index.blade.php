@@ -12,8 +12,9 @@
                     <tr>
 
                         <th scope="col">name</th>
-                        <th scope="col">attack</th>
+                        <th scope="col">strength</th>
                         <th scope="col">defence</th>
+                        <th scope="col">intelligence</th>
                         <th scope="col">speed</th>
                         <th scope="col">life</th>
                         <th scope="col">type</th>
@@ -26,10 +27,11 @@
                             <td>
                                 <a href="{{ route('characters.show', $character) }}">{{ $character->name }}</a>
                             </td>
-                            <td>{{ $character->attack }}</td>
+                            <td>{{ $character->strength }}</td>
                             <td>{{ $character->defence }}</td>
                             <td>{{ $character->speed }}</td>
                             <td>{{ $character->life }}</td>
+                            <td>{{ $character->intelligence }}</td>
                             <td>{{ $character->type->name }}</td>
                             <th>
                                 @foreach ($character->items as $item)
