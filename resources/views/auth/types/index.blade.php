@@ -30,7 +30,7 @@
                         <td>{{ $type->slug }}</td>
                         <td>{{ sizeof($type->characters) }}</td>
                         <td class="text-center">
-                            <a href="#">
+                            <a href="{{ route('types.show', $type) }}">
                                 <i class="fa-solid fa-circle-info"></i>
                             </a>
                             <a href="#">
