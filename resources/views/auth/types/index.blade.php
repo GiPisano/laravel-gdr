@@ -52,11 +52,11 @@
     </section>
 @endsection
 
-@section('modals')
+@section('modal')
     @foreach($types as $type)
         <div class="modal fade mt-5" id="deleteModal-id{{ $type->id }}" tabindex="-1" aria-labelledby="deleteModal-id{{ $type->id }}" aria-hidden="true">
             <div class="modal-dialog">
-                <form class="modal-content" action="#" method="POST">
+                <form class="modal-content" action="{{ route('types.destroy' , $type) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <div class="modal-header">

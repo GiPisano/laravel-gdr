@@ -42,10 +42,10 @@
     </section>
 @endsection
 
-@section('modals')
-    <div class="modal fade mt-5" id="deleteModal" tabindex="-1" aria-labelledby="deleteModa" aria-hidden="true">
+@section('modal')
+    <div class="modal fade mt-5" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
         <div class="modal-dialog">
-            <form class="modal-content" action="#" method="POST">
+            <form class="modal-content" action="{{ route('types.destroy', $type) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <div class="modal-header">
@@ -55,7 +55,7 @@
                     <p>
                         You are about to delete the {{ $type->name }} type. <br>
                         This action is <b>permanent</b>. <br>
-                        Pleazse confirm if you want to proceed.
+                        Please confirm if you want to proceed.
                     </p>
                 </div>
                 <div class="modal-footer">
