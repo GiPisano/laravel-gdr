@@ -38,7 +38,10 @@ class CharacterController extends Controller
      */
     public function show($id)
     {
-        //
+        $user_character = Character::select('name', 'description', 'strength', 'defence', 'speed', 'intelligence', 'life', 'type_id')->with('type')->where('id', $id)->first();
+        $rand_num = rand(1, Character::count());
+        $cpu_character = Character::select('name', 'description', 'strength', 'defence', 'speed', 'intelligence', 'life', 'type_id')->with('type')->where('id', $rand_num)->first();
+        return response()->json(['user_character' => $user_character, 'cpu_character' => $cpu_character]);
     }
 
     /**
