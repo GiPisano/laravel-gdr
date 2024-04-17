@@ -8,7 +8,7 @@
             <div class="row justify-content-between align-items-center">
                 <h1 class="mb-3 col-6">{{ $title }}</h1>
                     <div class="col-2 d-flex justify-content-end">
-                        <a class="btn btn-primary" href="#">Create a new type</a>
+                        <a class="btn btn-primary" href="{{ route('types.create') }}">Create a new type</a>
                     </div>
             </div>
 
@@ -33,7 +33,7 @@
                             <a href="{{ route('types.show', $type) }}">
                                 <i class="fa-solid fa-circle-info"></i>
                             </a>
-                            <a href="#">
+                            <a href="{{ route('types.edit', $type) }}">
                                 <i class="fa-solid fa-file-pen"></i>
                             </a>
                             <div class="d-inline-block">
@@ -52,11 +52,11 @@
     </section>
 @endsection
 
-@section('modals')
+@section('modal')
     @foreach($types as $type)
         <div class="modal fade mt-5" id="deleteModal-id{{ $type->id }}" tabindex="-1" aria-labelledby="deleteModal-id{{ $type->id }}" aria-hidden="true">
             <div class="modal-dialog">
-                <form class="modal-content" action="#" method="POST">
+                <form class="modal-content" action="{{ route('types.destroy' , $type) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <div class="modal-header">
