@@ -14,7 +14,7 @@
         <div class="container py-4">
             <h1 class="mb-5">{{ $title }}</h1>
 
-            <form action="@if(!isset($type->id)) {{ route('types.store') }} @else # @endif" method="POST">
+            <form action="@if(!isset($type->id)) {{ route('types.store') }} @else {{ route('types.update', $type) }} @endif" method="POST">
                 @csrf
                 @if(isset($type->id))
                     @method('PATCH')
@@ -38,7 +38,7 @@
                             id="description"
                             name="description"
                             rows="4"
-                        >{{ old('description') ?? $type->decription ?? '' }}</textarea>
+                        >{{ old('description') ?? $type->description ?? '' }}</textarea>
                         @error('description')
                             <div class="invalid-feedback mb-3">
                                 {{ $message }}

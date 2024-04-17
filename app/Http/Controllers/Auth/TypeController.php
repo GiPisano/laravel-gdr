@@ -44,7 +44,7 @@ class TypeController extends Controller
         $type->slug = Str::slug($type->name, '-');
         $type->save();
 
-        return redirect('types.show', $type);
+        return redirect()->route('types.show', $type);
     }
 
     /**
@@ -79,7 +79,17 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->all();
+        // dd($data['name']);
+        if ($data['name'] == $type->title) {
+            $type->update($data);
+        } else {
+            $type->fill($data);
+            $type->slug = Str::slug($type->name, '-');
+            $type->save();
+        }
+
+        return redirect()->route('types.show', $type);
     }
 
     /**

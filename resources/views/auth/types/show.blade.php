@@ -11,7 +11,7 @@
                     <a class="btn btn-primary" href="{{ route('types.index')}}">types' list</a>
                 </div>
                 <div class="col-2 d-flex justify-content-end">
-                    <a class="btn btn-primary ms-2" href="#">Modify this type</a>
+                    <a class="btn btn-primary ms-2" href="{{ route('types.edit', $type) }}">Modify this type</a>
                     <button type="submit" class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete this type</button>
                 </div>
 
@@ -21,7 +21,7 @@
                 
                 <div class="mb-3">                  
                     <div>
-                        <p>{{ $type->decription }}</p>
+                        <p>{{ $type->description }}</p>
                     </div>            
                 </div>
                 
